@@ -14,6 +14,9 @@ cd docs/.vitepress/dist/
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
 
+git config --global user.email "954475209@qq.com"
+git config --global user.name "jiangshuangquan"
+
 git init
 git add -A
 git commit -m 'deploy'
