@@ -7,7 +7,6 @@ import nav from './configs/nav'
 import sidebar from './configs/sidebar'
 
 export default defineConfig({
-  outDir: '../dist',
   base: '/VitePressBlob/',
   head: [
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

@@ -3,13 +3,13 @@
 # 确保脚本抛出遇到的错误
 set -e
 
-rm -rf dist/
+rm -rf docs/.vitepress/dist/
 
 # 生成静态文件
 pnpm run build
 
 # 进入生成的文件夹
-cd dist
+cd docs/.vitepress/dist/
 
 # 如果是发布到自定义域名
 # echo 'www.example.com' > CNAME
