@@ -9,6 +9,11 @@ export default [
     link: '/essay/introduction',
     activeMatch: '/essay/'
   },
+  {
+    text: '🔥 工程化',
+    link: '/project/introduction',
+    activeMatch: '/project/'
+  },
   // {
   //   text: '🔥 专栏',
   //   items: [
