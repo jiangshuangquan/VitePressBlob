@@ -47,7 +47,8 @@ function createCss() {
           { text: '变量计算组合', link: '/css/val' },
           { text: '选择器', link: '/css/select' },
           { text: '背景', link: '/css/background' },
-          { text: '阴影', link: '/css/shadow' },
+          { text: '遮罩', link: '/css/mask' },
+          { text: '阴影与滤镜', link: '/css/shadow' },
           { text: '变换与动画', link: '/css/transform' },]
         }
       ]

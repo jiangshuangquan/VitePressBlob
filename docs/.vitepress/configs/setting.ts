@@ -29,10 +29,10 @@ export function createSocialLinks(): SocialLink[] {
 
 export function createAlgolia() {
   return {
-    apiKey: '',
-    indexName: '',
+    apiKey: 'ca8d33e992f4473084fcfc58586ac9f3',
+    indexName: 'vitepressblob',
     // 如果 Algolia 没有为你提供 `appId` ，使用 `BH4D9OD16A` 或者移除该配置项
-    appId: '',
+    appId: 'RX43DBV9RM',
     placeholder: '请输入关键词',
     translations: {
       button: {
