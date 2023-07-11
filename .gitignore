@@ -4,9 +4,10 @@
 *.cpuprofile
 *.local
 *.log
-/src/cache
+
+docs/.vitepress/cache
+docs/.vitepress/dist
 /packages/vite/LICENSE
-dist
 dist-ssr
 explorations
 node_modules
