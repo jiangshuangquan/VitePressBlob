@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         env:
-          NODE_AUTH_TOKEN: ${{secrets.VITEPRESSBLOB}}
+          NODE_AUTH_TOKEN: ${{secrets.VitePressBlob}}
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
