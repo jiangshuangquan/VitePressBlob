@@ -53,5 +53,5 @@ jobs: # 任务
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.VitePressBlob }}
+          github_token: ${{ secrets.GA_TOKEN }}
           publish_dir: ./docs/.vitepress/dist/ # 打包文件位置
