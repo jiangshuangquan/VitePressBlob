@@ -8,7 +8,7 @@ hero:
   text: 一个学习总结博客
   tagline: css、vue源码.
   image:
-    src: ../logo.jpg
+    src: /logo.jpg
     alt: jsq
 features:
   - icon: 📝

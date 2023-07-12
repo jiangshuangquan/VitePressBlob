@@ -574,3 +574,119 @@ background-image: linear-gradient(to bottom, #f66 0, #66f 20%, #f90, 40%, #09f 6
 ```
 
 :::
+
+## 三角形
+
+<div class="triangle"></div>
+
+<style>
+.triangle {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #f00 0%, #f00 50%, transparent 50%, transparent 100%);
+}
+</style>
+
+::: details
+
+```html
+<div class="triangle"></div>
+
+<style>
+  .triangle {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(
+      45deg,
+      #f00 0%,
+      #f00 50%,
+      transparent 50%,
+      transparent 100%
+    );
+  }
+</style>
+```
+
+:::
+
+## 渐变叠加多层
+
+<div class="notching"></div>
+
+<style lang="scss">
+  .notching { 
+    width: 200px; 
+    height: 120px; 
+    background: 
+        linear-gradient(135deg, transparent 15px, deeppink 0), 
+        linear-gradient(-135deg, transparent 15px, deeppink 0), 
+        linear-gradient(-45deg, transparent 15px, deeppink 0), 
+        linear-gradient(45deg, transparent 15px, deeppink 0); 
+    background-size: 50% 50%, 50% 50%, 50% 50%, 50% 50%; 
+    background-position: top left, top right, bottom right, bottom left;
+    background-repeat: no-repeat; 
+}
+</style>
+
+::: details
+
+```html
+<div class="notching"></div>
+
+<style lang="scss">
+  .notching {
+    width: 200px;
+    height: 120px;
+    background: linear-gradient(135deg, transparent 15px, deeppink 0),
+      linear-gradient(-135deg, transparent 15px, deeppink 0),
+      linear-gradient(-45deg, transparent 15px, deeppink 0),
+      linear-gradient(45deg, transparent 15px, deeppink 0);
+    background-size: 50% 50%, 50% 50%, 50% 50%, 50% 50%;
+    background-position: top left, top right, bottom right, bottom left;
+    background-repeat: no-repeat;
+  }
+</style>
+```
+
+:::
+
+## 利用 repeating-linear-gradient 节省代码
+
+<div class="repeating"></div>
+
+<style lang="scss">
+.repeating{
+  width: 400px;
+  height: 100px;
+  background: 
+    repeating-linear-gradient(
+        45deg, 
+        #f06a0e, 
+        #f06a0e 11px, 
+        transparent 11px, 
+        transparent 20px
+    );
+}
+</style>
+
+::: details
+
+```html
+<div class="repeating"></div>
+
+<style lang="scss">
+  .repeating {
+    width: 400px;
+    height: 100px;
+    background: repeating-linear-gradient(
+      45deg,
+      #f06a0e,
+      #f06a0e 11px,
+      transparent 11px,
+      transparent 20px
+    );
+  }
+</style>
+```
+
+:::
