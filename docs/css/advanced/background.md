@@ -577,7 +577,327 @@ background: repeating-conic-gradient(#fff, #000, #fff 0.1deg);
   }
 }
 
+</style>
 
+## 通过滤镜 hue-rotate 实现渐变动画
 
+`hue-rotate`：为色相旋转滤镜，默认的值为 `0deg`，当旋转 `360deg` 后，相当于回到了本身的颜色值。
+
+<div class="hue-rotate"></div>
+
+<style lang="scss">
+.hue-rotate {
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    background: linear-gradient(45deg, #5fddcc, #ff004d);
+    animation: hueRotate 10s infinite alternate;
+}
+
+@keyframes hueRotate {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+</style>
+
+```css
+.hue-rotate {
+  width: 300px;
+  height: 100px;
+  margin: auto;
+  background: linear-gradient(45deg, #5fddcc, #ff004d);
+  animation: hueRotate 10s infinite alternate;
+}
+
+@keyframes hueRotate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+```
+
+## CSS @property
+
+[@property CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS/@property) at-rule 是 CSS Houdini API 的一部分，它允许开发者显式地定义他们的 CSS 自定义属性，允许进行属性类型检查、设定默认值以及定义该自定义属性是否可以被继承
+
+- `@property --property-name` 中的 --property-name 就是自定义属性的名称，定义后可在 CSS 中通过 var(--property-name) 进行引用。
+- `syntax`：该自定义属性的语法规则，也可以理解为表示定义的自定义属性的类型。
+- `inherits`：是否允许继承。
+- `initial-value`：初始值。
+
+<div class="property">
+<div class="A"></div>
+<div class="B"></div>
+</div>
+
+<style lang="scss">
+
+@property --colorA {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: fuchsia;
+}
+
+@property --colorB {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: teal;
+}
+
+@property --colorC {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #f79188;
+}
+
+@property --colorD {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: yellow;
+}
+
+@property --colorE {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: orange;
+}
+
+@property --colorF {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: red;
+}
+
+.property {
+  display:flex;
+  div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+      margin: auto;
+      cursor: pointer;
+  }
+  .A {
+    background: linear-gradient(45deg,
+        var(--colorA),
+        var(--colorB),
+        var(--colorC),
+        var(--colorD),
+        var(--colorE),
+        var(--colorF));
+    transition: 
+        --colorA 5000ms,
+        --colorB 5000ms,
+        --colorC 5000ms,
+        --colorD 5000ms,
+        --colorE 5000ms,
+        --colorF 5000ms;
+    
+    &:hover {
+        --colorA: red;
+        --colorB: orange;
+        --colorC: yellow;
+        --colorD: green;
+        --colorE: teal;
+        --colorF: fuchsia;
+    }
+  }
+
+  .B {
+    background: linear-gradient(45deg,
+        var(--colorA),
+        var(--colorC),
+        var(--colorF));
+    animation: change 10s infinite linear;
+  }
+}
+
+@keyframes change {
+    20% {
+        --colorA: red;
+        --colorC: #a93ee0;
+        --colorF: fuchsia;
+    }
+    40% {
+        --colorA: #ff3c41;
+        --colorC: #e228a0;
+        --colorF: #2e4c96;
+    }
+    60% {
+        --colorA: orange;
+        --colorC: green;
+        --colorF: teal;
+    }
+    80% {
+        --colorA: #ae63e4;
+        --colorC: #0ebeff;
+        --colorF: #efc371;
+    }
+}
 
 </style>
+
+::: details
+
+```html
+<div class="property">
+  <div class="A"></div>
+  <div class="B"></div>
+</div>
+
+<style lang="scss">
+  @property --colorA {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: fuchsia;
+  }
+
+  @property --colorB {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: teal;
+  }
+
+  @property --colorC {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #f79188;
+  }
+
+  @property --colorD {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: yellow;
+  }
+
+  @property --colorE {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: orange;
+  }
+
+  @property --colorF {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: red;
+  }
+
+  .property {
+    display: flex;
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+      margin: auto;
+      cursor: pointer;
+    }
+    .A {
+      background: linear-gradient(
+        45deg,
+        var(--colorA),
+        var(--colorB),
+        var(--colorC),
+        var(--colorD),
+        var(--colorE),
+        var(--colorF)
+      );
+      transition: --colorA 5000ms, --colorB 5000ms, --colorC 5000ms, --colorD
+          5000ms, --colorE 5000ms, --colorF 5000ms;
+
+      &:hover {
+        --colorA: red;
+        --colorB: orange;
+        --colorC: yellow;
+        --colorD: green;
+        --colorE: teal;
+        --colorF: fuchsia;
+      }
+    }
+
+    .B {
+      background: linear-gradient(
+        45deg,
+        var(--colorA),
+        var(--colorC),
+        var(--colorF)
+      );
+      animation: change 10s infinite linear;
+    }
+  }
+
+  @keyframes change {
+    20% {
+      --colorA: red;
+      --colorC: #a93ee0;
+      --colorF: fuchsia;
+    }
+    40% {
+      --colorA: #ff3c41;
+      --colorC: #e228a0;
+      --colorF: #2e4c96;
+    }
+    60% {
+      --colorA: orange;
+      --colorC: green;
+      --colorF: teal;
+    }
+    80% {
+      --colorA: #ae63e4;
+      --colorC: #0ebeff;
+      --colorF: #efc371;
+    }
+  }
+</style>
+```
+
+:::
+
+## 文字 hover 动效
+
+<p class="hover-a">Lorem ipsum dolor sit amet consectetur adipisicing elit. <a>Mollitia nostrum placeat consequatur deserunt velit ducimus possimus commodi temporibus debitis quam</a>, molestiae laboriosam sit repellendus sed sapiente quidem quod accusantium vero.</p>
+
+<style lang="scss">
+.hover-a{
+  a {
+    background: linear-gradient(90deg, #ff3c41, #fc0, #0ebeff);
+    background-size: 0 3px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: 1s all;
+    color: #0cc;
+  }
+  a:hover {
+      background-size: 100% 3px;
+      color: #000;
+  }
+}
+</style>
+
+```html
+<p class="hover-a">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  <a
+    >Mollitia nostrum placeat consequatur deserunt velit ducimus possimus
+    commodi temporibus debitis quam</a
+  >, molestiae laboriosam sit repellendus sed sapiente quidem quod
+  accusantium vero.
+</p>
+
+<style lang="scss">
+  .hover-a {
+    a {
+      background: linear-gradient(90deg, #ff3c41, #fc0, #0ebeff);
+      background-size: 0 3px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      transition: 1s all;
+      color: #0cc;
+    }
+    a:hover {
+      background-size: 100% 3px;
+      color: #000;
+    }
+  }
+</style>
+```

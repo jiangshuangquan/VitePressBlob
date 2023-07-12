@@ -55,7 +55,9 @@ function createCss() {
           text: 'css进阶',
           collapsed: false,
           items: [
-            { text: '背景渐变?', link: '/css/advanced/background' },
+            { text: '背景渐变', link: '/css/advanced/background' },
+            { text: 'mask遮罩', link: '/css/advanced/mask' },
+
           ]
         }
       ]
@@ -77,7 +79,7 @@ function createProject() {
             { text: 'AST抽象语法树', link: '/project/other/ast' },
             { text: 'npm依赖', link: '/project/other/npm' },
             { text: 'package与Readme', link: '/project/other/package' },
-
+            { text: '单元测试', link: '/project/other/jest' },
           ]
         },
         {
