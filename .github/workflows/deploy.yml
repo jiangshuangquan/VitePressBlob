@@ -1,27 +1,57 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+# name: Node.js Package
 
-on:
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   publish-gpr:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: read
+#       packages: write
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: actions/setup-node@v3
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.VitePressBlob}}
+#         with:
+#           node-version: 16
+#           registry-url: https://npm.pkg.github.com/
+#       - run: npm install -g pnpm
+#       - run: pnpm install
+#       - run: pnpm run deploy
+
+name: CBD # 动作名称
+
+on: # 触发条件：在push到main分支后
   push:
     branches:
       - main
 
-jobs:
-  publish-gpr:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+jobs: # 任务
+  cbd: # 任务ID
+    name: doc cbd # 任务名称(检出C构建B部署D)
+    runs-on: ubuntu-latest # 虚拟机环境
+    steps: # 运行步骤
+      # 切换Node环境
+      - name: Toggle
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - run: npm install -g pnpm
-      - run: pnpm install
-      - run: pnpm run deploy
+          node-version: 16.19.0
+      # 拉取代码
+      - name: Checkout
+        uses: actions/checkout@v3
+      # 打包文件
+      - name: Build
+        run: npm install -g pnpm && pnpm install &&  pnpm run build
+      # 部署站点
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GA_TOKEN }}
+          publish_dir: ./docs/.vitepress/dist/ # 打包文件位置

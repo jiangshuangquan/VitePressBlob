@@ -66,7 +66,19 @@ function createProject() {
           collapsed: false,
           items: [
             { text: '这章讲了什么?', link: '/project/introduction' },
+            { text: '什么是工程化', link: '/project/project' },
             { text: 'AST抽象语法树', link: '/project/ast' },
+            { text: 'npm依赖', link: '/project/npm' },
+            { text: 'package与Readme', link: '/project/other/package' },
+
+          ]
+        },
+        {
+          text: 'webpack',
+          collapsed: false,
+          items: [
+            { text: '构建优化', link: '/project/webpack/build' },
+
           ]
         }
       ]
