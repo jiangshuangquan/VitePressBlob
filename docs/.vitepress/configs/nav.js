@@ -1,7 +1,7 @@
 export default [
   {
     text: '📝 css',
-    link: '/css/introduction',
+    link: '/css/base/introduction',
     activeMatch: '/css/'
   },
   {
@@ -11,7 +11,7 @@ export default [
   },
   {
     text: '🔥 工程化',
-    link: '/project/introduction',
+    link: '/project/other/introduction',
     activeMatch: '/project/'
   },
   // {

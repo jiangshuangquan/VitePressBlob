@@ -114,10 +114,10 @@
 | ::placeholder  |   表单元素的占位   |  4   |
 
 <script setup>
-import Hover from '../../src/components/css/hover.vue' 
-import validation from '../../src/components/css/validation.vue' 
-import TabNavbar from '../../src/components/css/tab-navbar.vue' 
-import Before from '../../src/components/css/before.vue' 
+import Hover from '../../../src/components/css/hover.vue' 
+import validation from '../../../src/components/css/validation.vue' 
+import TabNavbar from '../../../src/components/css/tab-navbar.vue' 
+import Before from '../../../src/components/css/before.vue' 
 
 </script>
 

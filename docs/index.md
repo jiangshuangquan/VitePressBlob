@@ -14,13 +14,13 @@ features:
   - icon: 📝
     title: css
     details: css相关知识。
-    link: /css/introduction
+    link: /css/base/introduction
     linkText: 记录css
-  # - icon: 🎉
-  #   title: 面试
-  #   details: 海量前端面试问题解答，一站式阅读体验。
-  #   link: /docs/interview/internet-questions
-  #   linkText: 开始刷题
+  - icon: 🎉
+    title: 工程化
+    details: 工程化相关文章。
+    link: /project/other/introduction
+    linkText: 开始
   # - icon: 😤
   #   title: 手撕源码
   #   details: 拳打 Vue，脚踢 React。

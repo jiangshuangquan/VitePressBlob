@@ -462,9 +462,9 @@
 :::
 
 <script setup>
-import ChangeColor from '../../src/components/css/change-color.vue' 
-import ParallaxBtn from '../../src/components/css/parallax-btn.vue'
-import LikeBtn from '../../src/components/css/like-btn.vue' 
+import ChangeColor from '../../../src/components/css/change-color.vue' 
+import ParallaxBtn from '../../../src/components/css/parallax-btn.vue'
+import LikeBtn from '../../../src/components/css/like-btn.vue' 
 
 </script>
 

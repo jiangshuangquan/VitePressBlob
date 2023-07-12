@@ -654,8 +654,8 @@ CSS3 增加了 transform、transition 和 animation 三大交互属性
 ## 没有 js 的 from 表单
 
 <script setup>
-import Form from '../../src/components/css/form.vue' 
-import BruceFlex from '../../src/components/css/bruce-flex.vue' 
+import Form from '../../../src/components/css/form.vue' 
+import BruceFlex from '../../../src/components/css/bruce-flex.vue' 
 
 
 </script>
