@@ -50,6 +50,13 @@ function createCss() {
           { text: '遮罩', link: '/css/base/mask' },
           { text: '阴影与滤镜', link: '/css/base/shadow' },
           { text: '变换与动画', link: '/css/base/transform' },]
+        },
+        {
+          text: 'css进阶',
+          collapsed: false,
+          items: [
+            { text: '背景渐变?', link: '/css/advanced/background' },
+          ]
         }
       ]
     },
