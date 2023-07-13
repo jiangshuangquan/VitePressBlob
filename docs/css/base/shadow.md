@@ -165,181 +165,6 @@ blur 渲染阴影是虚色，而 spread 渲染阴影是实色，所以可将其�
 
 ::: details
 
-<ul class="aside-shadow ">
-	<li class="left"></li>
-	<li class="up"></li>
-	<li class="left"></li>
-	<li class="down"></li>
-	<li class="left-up"></li>
-	<li class="left-down"></li>
-	<li class="right-up"></li>
-	<li class="right-down"></li>
-</ul>
-
-<style lang="scss">
-  .aside-shadow {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 20px;
-	width: 500px;
-  list-style: none !important;
-  padding: 0;
-  margin: 0;
-	li {
-    margin-top: 0 !important;
-		border: 1px solid #f66;
-		width: 100px;
-		height: 100px;
-		&:not(:nth-child(4n-3)) {
-			margin-left: 20px;
-		}
-		&:nth-child(n+5) {
-			margin-top: 20px !important;
-		}
-		&.left {
-			box-shadow: -10px 0 5px -5px #f66;
-		}
-		&.right {
-			box-shadow: 10px 0 5px -5px #f66;
-		}
-		&.up {
-			box-shadow: 0 -10px 5px -5px #f66;
-		}
-		&.down {
-			box-shadow: 0 10px 5px -5px #f66;
-		}
-		&.left-up {
-			box-shadow: -10px 0 5px -5px #f66, 0 -10px 5px -5px #f66;
-		}
-		&.left-down {
-			box-shadow: -10px 0 5px -5px #f66, 0 10px 5px -5px #f66;
-		}
-		&.right-up {
-			box-shadow: 10px 0 5px -5px #f66, 0 -10px 5px -5px #f66;
-		}
-		&.right-down {
-			box-shadow: 10px 0 5px -5px #f66, 0 10px 5px -5px #f66;
-		}
-	}
-}
-</style>
-
-```html
-
-```
-
-:::
-
-## 彩虹色带
-
-<div class="rainbow-bar bar-1"></div>
-<div class="rainbow-bar bar-2"></div>
-
-<style lang="scss">
-  $rainbow: 0 0 0 8px #f66 inset,
-	0 0 0 16px #f90 inset,
-	0 0 0 24px #ff3 inset,
-	0 0 0 32px #3c9 inset,
-	0 0 0 40px #9c3 inset,
-	0 0 0 48px #09f inset,
-	0 0 0 56px #66f inset;
-.rainbow-bar {
-	width: 250px;
-	&.bar-1 {
-		overflow: hidden;
-		position: relative;
-		height: 125px;
-		&::after {
-			display: block;
-			border-radius: 100%;
-			width: 100%;
-			height: 200%;
-			box-shadow: $rainbow;
-			content: "";
-		}
-	}
-	&.bar-2 {
-		margin: 25px 0 0 0px;
-		border-radius: 100%;
-		height: 250px;
-		box-shadow: $rainbow;
-		clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
-	}
-}
-
-</style>
-
-::: details
-
-<ul class="aside-shadow ">
-	<li class="left"></li>
-	<li class="up"></li>
-	<li class="left"></li>
-	<li class="down"></li>
-	<li class="left-up"></li>
-	<li class="left-down"></li>
-	<li class="right-up"></li>
-	<li class="right-down"></li>
-</ul>
-
-<style lang="scss">
-  .aside-shadow {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 20px;
-	width: 500px;
-  list-style: none !important;
-  padding: 0;
-  margin: 0;
-	li {
-    margin-top: 0 !important;
-		border: 1px solid #f66;
-		width: 100px;
-		height: 100px;
-		&:not(:nth-child(4n-3)) {
-			margin-left: 20px;
-		}
-		&:nth-child(n+5) {
-			margin-top: 20px !important;
-		}
-		&.left {
-			box-shadow: -10px 0 5px -5px #f66;
-		}
-		&.right {
-			box-shadow: 10px 0 5px -5px #f66;
-		}
-		&.up {
-			box-shadow: 0 -10px 5px -5px #f66;
-		}
-		&.down {
-			box-shadow: 0 10px 5px -5px #f66;
-		}
-		&.left-up {
-			box-shadow: -10px 0 5px -5px #f66, 0 -10px 5px -5px #f66;
-		}
-		&.left-down {
-			box-shadow: -10px 0 5px -5px #f66, 0 10px 5px -5px #f66;
-		}
-		&.right-up {
-			box-shadow: 10px 0 5px -5px #f66, 0 -10px 5px -5px #f66;
-		}
-		&.right-down {
-			box-shadow: 10px 0 5px -5px #f66, 0 10px 5px -5px #f66;
-		}
-	}
-}
-</style>
-
-```html
-
-```
-
-:::
-
-## 专栏头像
-
-::: details 让视觉元素看上去更具立体感
-
 ```html
 <ul class="aside-shadow ">
   <li class="left"></li>
@@ -396,6 +221,123 @@ blur 渲染阴影是虚色，而 spread 渲染阴影是实色，所以可将其�
       &.right-down {
         box-shadow: 10px 0 5px -5px #f66, 0 10px 5px -5px #f66;
       }
+    }
+  }
+</style>
+```
+
+:::
+
+## 彩虹色带
+
+<div class="rainbow-bar bar-1"></div>
+<div class="rainbow-bar bar-2"></div>
+
+<style lang="scss">
+  $rainbow: 0 0 0 8px #f66 inset,
+	0 0 0 16px #f90 inset,
+	0 0 0 24px #ff3 inset,
+	0 0 0 32px #3c9 inset,
+	0 0 0 40px #9c3 inset,
+	0 0 0 48px #09f inset,
+	0 0 0 56px #66f inset;
+.rainbow-bar {
+	width: 250px;
+	&.bar-1 {
+		overflow: hidden;
+		position: relative;
+		height: 125px;
+		&::after {
+			display: block;
+			border-radius: 100%;
+			width: 100%;
+			height: 200%;
+			box-shadow: $rainbow;
+			content: "";
+		}
+	}
+	&.bar-2 {
+		margin: 25px 0 0 0px;
+		border-radius: 100%;
+		height: 250px;
+		box-shadow: $rainbow;
+		clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+	}
+}
+
+</style>
+
+::: details
+
+```html
+<div class="rainbow-bar bar-1"></div>
+<div class="rainbow-bar bar-2"></div>
+
+<style lang="scss">
+  $rainbow: 0 0 0 8px #f66 inset, 0 0 0 16px #f90 inset,
+    0 0 0 24px #ff3 inset, 0 0 0 32px #3c9 inset, 0 0 0 40px #9c3 inset, 0
+      0 0 48px #09f inset, 0 0 0 56px #66f inset;
+  .rainbow-bar {
+    width: 250px;
+    &.bar-1 {
+      overflow: hidden;
+      position: relative;
+      height: 125px;
+      &::after {
+        display: block;
+        border-radius: 100%;
+        width: 100%;
+        height: 200%;
+        box-shadow: $rainbow;
+        content: '';
+      }
+    }
+    &.bar-2 {
+      margin: 25px 0 0 0px;
+      border-radius: 100%;
+      height: 250px;
+      box-shadow: $rainbow;
+      clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    }
+  }
+</style>
+```
+
+:::
+
+## 专栏头像
+
+::: details 让视觉元素看上去更具立体感
+
+```html
+<div class="article-avatar">
+  <p class="left">Jiangsq</p>
+  <p class="right">学前端</p>
+</div>
+
+<style lang="scss">
+  .article-avatar {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 250px;
+    height: 250px;
+    background-color: #f66;
+    box-shadow: 0 0 50px 5px rgba(#000, 0.2) inset;
+    line-height: 50px;
+    text-shadow: 5px 5px 10px rgba(#000, 0.5);
+    font-weight: bold;
+    font-size: 30px;
+    color: #fff;
+    .left {
+      border-top: 3px solid #fff;
+      text-indent: -1em;
+    }
+    .right {
+      text-indent: 2em;
+      font-size: 40px;
     }
   }
 </style>
