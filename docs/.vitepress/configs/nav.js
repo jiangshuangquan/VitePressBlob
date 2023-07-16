@@ -6,7 +6,7 @@ export default [
   },
   {
     text: '🔥 杂文',
-    link: '/essay/introduction',
+    link: '/essay/introduction/introduction',
     activeMatch: '/essay/'
   },
   {
@@ -14,26 +14,16 @@ export default [
     link: '/project/other/introduction',
     activeMatch: '/project/'
   },
-  // {
-  //   text: '🔥 专栏',
-  //   items: [
-  //     {
-  //       text: '😤 手撕源码',
-  //       link: '/docs/special-column/vue/00-导读',
-  //       activeMatch: '/docs/special-column/vue/'
-  //     },
-  //     {
-  //       text: '🤔 前端算法',
-  //       link: '/docs/special-column/vue/00-导读',
-  //       activeMatch: '/docs/special-column/vue/'
-  //     },
-  //     {
-  //       text: '🤖 前端运维',
-  //       link: '/docs/special-column/vue/00-导读',
-  //       activeMatch: '/docs/special-column/vue/'
-  //     }
-  //   ]
-  // },
+  {
+    text: '🔥 源码',
+    items: [
+      {
+        text: 'jq',
+        link: '/source-code/jq/xhr',
+        activeMatch: '/source-code/'
+      }
+    ]
+  },
   // {
   //   text: '🎉 面试',
   //   link: '/docs/interview/internet-questions',

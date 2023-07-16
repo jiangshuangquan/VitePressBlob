@@ -3,7 +3,8 @@ export default {
   '/essay/': createEssay(),
   // css
   '/css/': createCss(),
-  '/project/': createProject()
+  '/project/': createProject(),
+  '/source-code/': createSourceCode()
 }
 
 
@@ -18,10 +19,10 @@ function createEssay() {
           text: 'Introduction',
           collapsed: false,
           items: [
-            { text: '这章讲了什么?', link: '/essay/introduction' },
-            { text: 'markdown', link: '/essay/markdown' },
-            { text: 'vp-md', link: '/essay/vp-md' },
-
+            { text: '这章讲了什么?', link: '/essay/introduction/introduction' },
+            { text: 'markdown', link: '/essay/introduction/markdown' },
+            { text: 'vp-md', link: '/essay/introduction/vp-md' },
+            { text: '安全', link: '/essay/introduction/safety' },
           ]
         }
       ]
@@ -80,6 +81,7 @@ function createProject() {
             { text: 'npm依赖', link: '/project/other/npm' },
             { text: 'package与Readme', link: '/project/other/package' },
             { text: '单元测试', link: '/project/other/jest' },
+            { text: 'tsconfig.json', link: '/project/other/tsconfig' },
           ]
         },
         {
@@ -90,6 +92,27 @@ function createProject() {
 
           ]
         }
+      ]
+    }
+  ];
+}
+
+function createSourceCode() {
+  return [
+    {
+      items: [
+        {
+          text: 'jq',
+          collapsed: false,
+          items: [
+            { text: 'xhr', link: '/source-code/jq/xhr' },
+            { text: 'attribute', link: '/source-code/jq/attribute' },
+            { text: 'core', link: '/source-code/jq/core' },
+            { text: 'jq中的regular', link: '/source-code/jq/regular' },
+            { text: 'css', link: '/source-code/jq/css' },
+            { text: 'trigger', link: '/source-code/jq/trigger' },
+          ]
+        },
       ]
     }
   ];

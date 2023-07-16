@@ -21,14 +21,14 @@ features:
     details: 工程化相关文章。
     link: /project/other/introduction
     linkText: 开始
-  # - icon: 😤
-  #   title: 手撕源码
-  #   details: 拳打 Vue，脚踢 React。
-  #   link: /docs/special-column/vue/00-导读
-  #   linkText: 开干！！
+  - icon: 😤
+    title: 源码
+    details: 一些框架源码。
+    link: /source-code/jq/xhr
+    linkText: 开干！！
   - icon: 🔗
     title: 杂文
     details: 一些不知道丢在哪里的文章。
-    link: /essay/introduction
+    link: /essay/introduction/introduction
     linkText: 开始查阅
 ---
