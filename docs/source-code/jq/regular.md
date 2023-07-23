@@ -87,3 +87,37 @@ export default new RegExp(
 ```
 
 `<div class='container'>Hello</div>`，该正则表达式可以匹配到 `div`。
+
+## 匹配 属性值匹配
+
+```js
+///表示空白字符的模式，包括空格、制表符、回车符、换行符和换页符
+var whitespace = '[\\x20\\t\\r\\n\\f]';
+
+//表示 CSS 标识符的模式，包括转义序列、非回车换行符、字母数字字符、连字符以及不在 Basic Latin 范围内的字符
+var identifier =
+  '(?:\\\\[\\da-fA-F]{1,6}' +
+  whitespace +
+  '?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+';
+
+// Attribute selectors: https://www.w3.org/TR/selectors/#attribute-selectors
+//匹配属性选择器的各种形式，包括属性名称、运算符、属性值（CSS 标识符或字符串）等
+var attributeSelectorPattern =
+  '\\[' +
+  whitespace +
+  '*(' +
+  identifier +
+  ')(?:' +
+  whitespace +
+  // Operator (capture 2)
+  '*([*^$|!~]?=)' +
+  whitespace +
+  // "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
+  '*(?:\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)"|(' +
+  identifier +
+  '))|)' +
+  whitespace +
+  '*\\]';
+
+const regex = new RegExp(attributeSelectorPattern);
+```

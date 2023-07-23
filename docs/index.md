@@ -12,9 +12,9 @@ hero:
     alt: jsq
 features:
   - icon: 📝
-    title: css
-    details: css相关知识。
-    link: /css/base/introduction
+    title: 基础
+    details: css、html、js、ts相关知识。
+    link: /base/css/introduction
     linkText: 记录css
   - icon: 🎉
     title: 工程化

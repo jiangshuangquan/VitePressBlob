@@ -2,7 +2,7 @@ export default {
   // 杂文
   '/essay/': createEssay(),
   // css
-  '/css/': createCss(),
+  '/base/': createCss(),
   '/project/': createProject(),
   '/source-code/': createSourceCode()
 }
@@ -40,25 +40,35 @@ function createCss() {
         {
           text: 'css基础',
           collapsed: false,
-          items: [{ text: '这章讲了什么?', link: '/css/base/introduction' },
-          { text: '常用属性', link: '/css/base/attributes' },
-          { text: '盒模型', link: '/css/base/box-model' },
-          { text: '布局', link: '/css/base/layout' },
-          { text: '函数', link: '/css/base/function' },
-          { text: '变量计算组合', link: '/css/base/val' },
-          { text: '选择器', link: '/css/base/select' },
-          { text: '背景和渐变', link: '/css/base/background' },
-          { text: '遮罩', link: '/css/base/mask' },
-          { text: '阴影与滤镜', link: '/css/base/shadow' },
-          { text: '变换与动画', link: '/css/base/transform' },]
+          items: [{ text: '这章讲了什么?', link: '/base/css/introduction' },
+          { text: '常用属性', link: '/base/css/attributes' },
+          { text: '盒模型', link: '/base/css/box-model' },
+          { text: '布局', link: '/base/css/layout' },
+          { text: '函数', link: '/base/css/function' },
+          { text: '变量计算组合', link: '/base/css/val' },
+          { text: '选择器', link: '/base/css/select' },
+          { text: '背景和渐变', link: '/base/css/background' },
+          { text: '遮罩', link: '/base/css/mask' },
+          { text: '阴影与滤镜', link: '/base/css/shadow' },
+          { text: '变换与动画', link: '/base/css/transform' },]
         },
         {
           text: 'css进阶',
           collapsed: false,
           items: [
-            { text: '背景渐变', link: '/css/advanced/background' },
-            { text: 'mask遮罩', link: '/css/advanced/mask' },
+            { text: '背景渐变', link: '/base/css-advanced/background' },
+            { text: 'mask遮罩', link: '/base/css-advanced/mask' },
 
+          ]
+        },
+        {
+          text: 'ts',
+          collapsed: false,
+          items: [
+            { text: 'ts介绍', link: '/base/ts/introduction' },
+            { text: 'Decorators装饰器', link: '/base/ts/decorators' },
+            { text: 'vue-property-decorator', link: '/base/ts/vue-property-decorator' },
+            { text: 'vue-class-component', link: '/base/ts/vue-class-component' },
           ]
         }
       ]
