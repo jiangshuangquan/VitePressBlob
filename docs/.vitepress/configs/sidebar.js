@@ -121,6 +121,7 @@ function createSourceCode() {
             { text: 'jq中的regular', link: '/source-code/jq/regular' },
             { text: 'css', link: '/source-code/jq/css' },
             { text: 'trigger', link: '/source-code/jq/trigger' },
+            { text: 'queue', link: '/source-code/jq/queue' },
           ]
         },
       ]

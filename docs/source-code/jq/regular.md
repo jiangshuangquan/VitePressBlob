@@ -88,7 +88,7 @@ export default new RegExp(
 
 `<div class='container'>Hello</div>`，该正则表达式可以匹配到 `div`。
 
-## 匹配 属性值匹配
+## attributes 匹配 属性值匹配
 
 ```js
 ///表示空白字符的模式，包括空格、制表符、回车符、换行符和换页符
@@ -120,4 +120,102 @@ var attributeSelectorPattern =
   '*\\]';
 
 const regex = new RegExp(attributeSelectorPattern);
+```
+
+## identifier 匹配 css 中的转义字符
+
+```js
+var whitespace = '[\\x20\\t\\r\\n\\f]';
+
+export default '(?:\\\\[\\da-fA-F]{1,6}' +
+  whitespace +
+  '?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+';
+```
+
+## pseudos 解析 CSS 选择器
+
+```js
+var whitespace = '[\\x20\\t\\r\\n\\f]';
+
+// https://www.w3.org/TR/css-syntax-3/#ident-token-diagram
+const identifier =
+  '(?:\\\\[\\da-fA-F]{1,6}' +
+  whitespace +
+  '?|\\\\[^\\r\\n\\f]|[\\w-]|[^\0-\\x7f])+';
+
+// Attribute selectors: https://www.w3.org/TR/selectors/#attribute-selectors
+const attributes =
+  '\\[' +
+  whitespace +
+  '*(' +
+  identifier +
+  ')(?:' +
+  whitespace +
+  // Operator (capture 2)
+  '*([*^$|!~]?=)' +
+  whitespace +
+  // "Attribute values must be CSS identifiers [capture 5] or strings [capture 3 or capture 4]"
+  '*(?:\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)"|(' +
+  identifier +
+  '))|)' +
+  whitespace +
+  '*\\]';
+
+export default ':(' +
+  identifier +
+  ')(?:\\((' +
+  // To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
+  // 1. quoted (capture 3; capture 4 or capture 5)
+  '(\'((?:\\\\.|[^\\\\\'])*)\'|"((?:\\\\.|[^\\\\"])*)")|' +
+  // 2. simple (capture 6)
+  '((?:\\\\.|[^\\\\()[\\]]|' +
+  attributes +
+  ')*)|' +
+  // 3. anything else (capture 2)
+  '.*' +
+  ')\\)|)';
+```
+
+## 匹配以逗号分隔的 CSS 选择器
+
+```js
+new RegExp('^' + whitespace + '*,' + whitespace + '*');
+```
+
+## 匹配空白字符或大于符号 (>)
+
+```js
+new RegExp(whitespace + '|>');
+```
+
+## 匹配以符号 +、>、~ 或空白字符开头的字符串
+
+```js
+new RegExp(
+  '^' + whitespace + '*([>+~]|' + whitespace + ')' + whitespace + '*'
+);
+```
+
+## filterMatchExpr
+
+```js
+var filterMatchExpr = {
+  ID: new RegExp('^#(' + identifier + ')'),
+  CLASS: new RegExp('^\\.(' + identifier + ')'),
+  TAG: new RegExp('^(' + identifier + '|[*])'),
+  ATTR: new RegExp('^' + attributes),
+  PSEUDO: new RegExp('^' + pseudos), // 伪类选择器
+  CHILD: new RegExp( // 子元素选择器
+    '^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(' +
+      whitespace +
+      '*(even|odd|(([+-]|)(\\d*)n|)' +
+      whitespace +
+      '*(?:([+-]|)' +
+      whitespace +
+      '*(\\d+)|))' +
+      whitespace +
+      '*\\)|)',
+    'i'
+  )
+};
 ```

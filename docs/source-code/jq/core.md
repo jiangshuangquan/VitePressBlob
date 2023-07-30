@@ -164,3 +164,18 @@ window.addEventListener('load', completed);
 ```
 
 类似 promise 的异步执行函数，早期，没有 promise 时 jq 自己实现的异步执行方法，为了兼容旧版本逻辑较为复杂，感兴趣可以这些去看一下源码
+
+## pushStack 在 jQuery 对象的堆栈上建立一个新的匹配元素集合
+
+```js
+// 返回当前 jQuery 对象的构造函数的实例，相当于创建一个空的 jQuery 对象，然后使用 jQuery.merge() 将其中的元素合并
+var ret = jQuery.merge(this.constructor(), elems);
+//将原始的 jQuery 对象作为 ret 对象的 prevObject 属性
+ret.prevObject = this;
+
+return ret;
+```
+
+## cssHooks
+
+hooks 是 jq 里面重要的设计思想，检测到需要 hook 处理的函数，就会执行 hook，vue 源码内也有类似内容
