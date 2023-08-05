@@ -70,6 +70,16 @@ function createCss() {
             { text: 'vue-property-decorator', link: '/base/ts/vue-property-decorator' },
             { text: 'vue-class-component', link: '/base/ts/vue-class-component' },
           ]
+        },
+        {
+          text: 'RegExp',
+          collapsed: false,
+          items: [
+            { text: '正则', link: '/base/regexp/introduction' },
+            { text: '正则方法', link: '/base/regexp/methods' },
+            { text: '字符串方法', link: '/base/regexp/stringMethods' },
+
+          ]
         }
       ]
     },
